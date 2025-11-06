@@ -1,0 +1,29 @@
+This study summary addresses Azure Data Factory (ADF) data pipelines, drawing exclusively on the BUS5001 workshop PDFs and using specified terminology.
+TOPIC: Azure Data Factory (ADF) Data Pipelines
+Azure Data Factory (ADF) is a hybrid data integration service that simplifies ETL (Extract, Transform, Load) at scale. It is used to automate data integration and workflow creation, such as loading unified NYC Taxi Trip Data into an Azure SQL Database.
+5 Key Learning Points from the ADF Lab
+1. Linked Service as the Conduit: A Linked Service acts as the essential conduit that enables ADF to access and interact with external data stores (like Azure Blob Storage or Azure SQL Database). It provides the necessary connection parameters and authentication details, such as an Account key or connection string.
+2. Dataset Defines Structure: A Dataset specifies the exact location, credentials (via a Linked Service), format (e.g., Delimited Text), and schema of the data. It tells the Data Factory what data to pull and how to interpret it, defining both the input (Source) and output (Sink) locations.
+3. Data Flow for Transformation: A Data Flow defines the actual processing steps the data will undergo. It connects the Source component (importing data from a dataset like nyctaxidatacsv) and the Sink component (defining the destination, such as an Azure SQL Database table).
+4. Pipeline Orchestration: The overall ETL process is managed by the Pipeline, which incorporates the designed Data Flow as a Data flow activity. The pipeline can later be automated using a Trigger.
+5. Debugging and Monitoring: The Debug feature allows testing of the data flow logic using a subset of data before full execution. After execution, the Monitor section (specifically the Pipeline runs tab) provides a comprehensive view of execution status, duration, and details, which is crucial for troubleshooting.
+(Source: BUS5001-ADF-2.pdf)
+3 Common Pipeline Configuration Mistakes and Their Causes
+Pitfall
+Cause
+Source
+Linked Service Authentication Failure
+Occurs when the Authentication type is set to Account key (for Blob Storage) but the necessary account key or connection string is missing or incorrect, preventing ADF from communicating with the external service.
+BUS5001-ADF-2.pdf
+Incorrect Source Data Interpretation
+This mistake happens within the Dataset configuration when CSV File Settings such as the Column Delimiter (e.g., comma) or the First Row as Header setting are misaligned with the actual format of the source CSV files (e.g., staging/tripdata).
+BUS5001-ADF-2.pdf
+Failure to Handle Schema Changes
+If the structure of the incoming source data changes (e.g., new columns are added), the Data Flow may fail if the Allow schema drift option is not enabled in the Source Options. Enabling this setting allows the data flow to dynamically handle these changes.
+BUS5001-ADF-2.pdf
+5 Quiz Questions with Answers
+1. Question: What specific information must be checked in the CSV File Settings of a Dataset to ensure that the first row is correctly interpreted as column labels during ingestion? Answer: The First Row as Header checkbox must be selected. (Source: BUS5001-ADF-2.pdf)
+2. Question: Which ADF component is responsible for providing the necessary security details (like the Account key) for connecting to an external resource like Azure Blob Storage? Answer: The Linked Service. (Source: BUS5001-ADF-2.pdf)
+3. Question: In the context of a Data Flow, what purpose does the Sink component serve? Answer: The Sink component defines the final destination where the processed data will be loaded after transformations have been applied (e.g., the Azure SQL Database table). (Source: BUS5001-ADF-2.pdf)
+4. Question: What functionality allows a user to test the logic, transformations, and mappings of a Data Flow using only a subset of data before running the full ETL job? Answer: The Debug button/feature in the Data Flow editor. (Source: BUS5001-ADF-2.pdf)
+5. Question: To transition an ETL design from the visual workspace into an executable workflow, which ADF resource must contain the Data Flow? Answer: The Data Flow activity must be added to a Pipeline. (Source: BUS5001-ADF-2.pdf)
