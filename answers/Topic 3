@@ -1,0 +1,28 @@
+This study guide is generated exclusively from the content of the BUS5001 Virtual Machines and SQL Database workshop PDF (BUS5001-Workshop-Wk06-VirtualMachines_SQLDatabase.pdf).
+TOPIC: Azure Virtual Machines (VM) and Azure SQL Database
+This workshop focuses on the fundamental deployment and networking configuration required for accessing Azure SQL Database and a basic Windows Virtual Machine.
+5 Important VM/SQL Concepts Students Must Understand
+1. SQL Authentication Requirement: Creating an Azure SQL Database instance requires setting the Authentication method to User SQL authentication and providing a distinct Server admin login and password. This credential set is later needed to log into the Query editor.
+2. Public Network Access for SQL: For connectivity, the Azure SQL Database requires the Connectivity method to be set to Public endpoint. Furthermore, the Firewall rules must have Add current client IP address set to Yes to allow the originating connection to reach the server.
+3. Empty Database Initialization: When configuring the SQL Database, the Data source section must have Use existing data set to None. This ensures that the database is deployed as an empty database, rather than using an existing data source.
+4. Remote Desktop Protocol (RDP) for VM Access: The dedicated protocol used to connect to the Azure Virtual Machine (VM) is Remote Desktop Protocol (RDP). RDP is a proprietary protocol developed by Microsoft Corporation that provides a user with a graphical interface to connect to another computer over a network connection.
+5. VM Inbound Port Requirement: To enable the RDP connection, the Virtual Machine's networking tab must be configured to allow Public inbound ports as Allow selected ports, with RDP specifically listed as an inbound port. Once deployed, connection requires using the VM's public IP address in the Remote Desktop client.
+3 Common Errors When Setting Up VM or SQL Firewall/Networking Settings
+Error Scenario
+Cause
+Source Reference
+SQL Database Connection Refused (IP Blocked)
+Failure to set Add current client IP address to Yes during the networking step of SQL Database creation. This results in the client machine's originating IP address being blocked by the server’s firewall.
+BUS5001-Workshop-Wk06-VirtualMachines_SQLDatabase.pdf (Section 1, Step 8a)
+VM RDP Connection Timeout/Failure
+RDP port access is not explicitly enabled or allowed. The Public inbound ports setting on the VM networking tab must be set to Allow selected ports, specifically including RDP.
+BUS5001-Workshop-Wk06-VirtualMachines_SQLDatabase.pdf (Section 2, Step 21)
+Inability to Access SQL via Query Editor
+The Connectivity method for the SQL Database was not set to the required Public endpoint. If set incorrectly, necessary external communication (like the Query editor login) may fail.
+BUS5001-Workshop-Wk06-VirtualMachines_SQLDatabase.pdf (Section 1, Step 8)
+5 Quiz Questions with Answers
+1. Question: What specific Firewall rule setting must be applied during Azure SQL Database creation to allow the current user’s machine to connect to the database server? Answer: Add current client IP address must be set to Yes.
+2. Question: What type of authentication is required when creating the Azure SQL Database server instance for the workshop? Answer: User SQL authentication.
+3. Question: In the context of the Azure Virtual Machine, what does the acronym RDP stand for, and what is its primary function? Answer: Remote Desktop Protocol. It is a proprietary Microsoft protocol that provides a user with a graphical interface to connect to another computer over a network connection.
+4. Question: When creating an empty Azure SQL Database, what value must be selected for the Use existing data option under the Data source section? Answer: None.
+5. Question: Which networking configuration settings on the Virtual Machine resource ensure that external remote connection attempts using RDP are permitted? Answer: Public inbound ports must be set to Allow selected ports, and RDP must be selected as an Inbound port
