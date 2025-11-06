@@ -1,0 +1,9 @@
+Based solely on the provided BUS5001 workshop PDFs, the steps required to configure AWS EMR Serverless for large-scale data processing **Based solely on the provided BUS5001 workshop PDFs, the steps required to configure AWS EMR Serverless for large-scale data processing are not present in the sources.
+The sources focus exclusively on services within the Microsoft Azure ecosystem, specifically:
+• Azure Storage Accounts and Blob Storage.
+• Azure Data Factory (ADF) for data integration and workflow creation.
+• Azure SQL Database.
+• Azure Virtual Machines (VM).
+• Azure Machine Learning (AzureML) Studio for predictive analytics using Automated Machine Learning (AutoML).
+• Databricks Community Edition for analytics workloads using compute clusters and notebooks.
+There is no mention of Amazon Web Services (AWS), AWS EMR, or EMR Serverless within the provided workshop materials.
