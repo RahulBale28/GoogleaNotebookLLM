@@ -1,0 +1,26 @@
+This study guide summarizes the key components of setting up and running Automated Machine Learning (AutoML) experiments using Azure Machine Learning (Azure ML) Studio, drawing only on the Week 11 workshop PDF.
+TOPIC: Azure Machine Learning AutoML Experiments
+Azure Machine Learning (AzureML) Studio is a cloud-based platform for building, training, and deploying machine learning models. Automated Machine Learning (AutoML) simplifies this process by automating model selection, hyperparameter tuning, and feature engineering.
+5 Key Learning Points
+1. Core Objective (Regression): The tutorial's objective is to use existing data to predict taxi fares based on trip parameters. The required Task type selected in the AutoML job configuration for this purpose is Regression.
+2. Dataset Usage: The model training utilizes the specific, pre-created dataset within the workspace named "NYC-Taxi_Fare_Training_Dataset".
+3. Compute Requirements: All machine learning training jobs require scalable, cloud-based resources provided by an Azure Compute Cluster. The specific cluster used in the workshop is the "BUS5WB-Compute-Cluster".
+4. Limits for Efficiency: To control resource usage and execution time, users must manually configure Limits such as Max Trials, Max concurrent trials, Max nodes, and Experiment timeout (minutes) (e.g., set to 15).
+5. Model Evaluation and Selection: After the job is Completed, the Models + child jobs tab lists the tested algorithms. These models are sorted by the least error to the highest. The model with the least error is selected as the best model, based on metrics such as Normalized root mean squared error.
+(Source: BUS5001_Week11_Workshop_AzureML.pdf)
+3 Common Configuration Pitfalls
+Pitfall Scenario
+Cause
+Source Reference
+Incorrect Target Column Selection
+If the Target column is not accurately set to "fare_amount" during the Task settings configuration, the model will attempt to predict the wrong variable, failing the regression objective.
+Missing or Incorrect Compute Cluster
+Failure to set the "Select compute type" to "Compute Cluster" and choose the pre-existing "BUS5WB-Compute-Cluster" prevents the submission and execution of the training job, as there are no allocated resources to run the experiment.
+Unrestricted Model Selection
+If the "Use all supported models" option is not unticked, AutoML may run lengthy trials using algorithms that are unnecessary for the specific task, wasting compute time and potentially increasing cost, instead of limiting the selection to specified models like LassoLars, LighGBM, and XGBoostRegressor.
+5 Quiz Questions with Answers
+1. Question: What specific Task type is selected in the AutoML configuration when attempting to predict continuous values like the NYC taxi fare price? Answer: Regression.
+2. Question: Which compute resource must be selected to provide the scalable, cloud-based environment needed to run the machine learning training jobs? Answer: The Compute Cluster, specifically the "BUS5WB-Compute-Cluster".
+3. Question: In the Task settings, what is the specific name of the column that must be designated as the Target column? Answer: "fare_amount".
+4. Question: After the AutoML job is completed, on which tab can you view the list of algorithms tested and their performance metrics? Answer: The "Models + child jobs" tab.
+5. Question: To enforce time limits and resource boundaries during the experiment, which section must be expanded and configured to set values such as Max Trials and Experiment timeout (minutes)? Answer: The Limits section.
