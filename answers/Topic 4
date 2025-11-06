@@ -1,0 +1,29 @@
+This study summary is based solely on the content of the BUS5001 Databricks workshop PDFs (BUS5001-Workshop-Databricks-Signup-4.pdf).
+TOPIC: Databricks Setup, Clusters, Notebooks, and DBFS
+Databricks Community Edition provides an environment for running analytics workloads using compute clusters and notebooks, with data storage managed by the Databricks File System (DBFS).
+5 Key Learning Points
+1. Registration Requirement: When signing up for the Databricks Community Edition, users must use an external email address (such as Gmail or Outlook). This is necessary because there is a reported issue in being able to sign up using a student account.
+2. Compute Cluster Necessity: After logging in to the dashboard, a compute cluster must be created and named. This resource is essential because analytics workloads cannot be executed without an underlying compute resource attached to the notebook.
+3. Notebook Function: The primary location for running code and carrying out an analytics workload is within a notebook.
+4. DBFS Utility Command: The Databricks File System (DBFS) directories are enumerated (listed) using the dbutils.fs.ls library command. For example, display(dbutils.fs.ls('/')) enumerates the root directory.
+5. Accessing Sample Data: Databricks provides a set of sample databases that can be enumerated using the dbutils.fs.ls command targeted at the specific path: /databricks-datasets/.
+(Source: BUS5001-Workshop-Databricks-Signup-4.pdf)
+3 Common Cluster or DBFS Errors and Why They Happen
+Error Scenario
+Cause
+Source Reference
+Failed Sign Up/Email Verification
+The user attempted registration using a student email account. The workshop specifically advises using an external email address due to an ongoing issue with student account sign-up.
+BUS5001-Workshop-Databricks-Signup-4.pdf
+Notebook Workload Execution Failure
+The user failed to create a compute cluster or failed to attach it to their notebook. A cluster is necessary to run the code required for an analytics workload.
+BUS5001-Workshop-Databricks-Signup-4.pdf
+DBFS Listing Error
+The user attempted to list directories using an incorrect utility or misspelled the command. Directory listing requires the specific Databricks utility, dbutils.fs.ls, applied to the relevant path (e.g., /).
+BUS5001-Workshop-Databricks-Signup-4.pdf
+5 Quiz Questions with Answers
+1. Question: According to the workshop, what resource must be created after logging into the Databricks dashboard to enable the execution of an analytics workload? Answer: A compute cluster. (Source: BUS5001-Workshop-Databricks-Signup-4.pdf)
+2. Question: What library command is used within a Databricks notebook to list the directories within the Databricks File System (DBFS)? Answer: dbutils.fs.ls. (Source: BUS5001-Workshop-Databricks-Signup-4.pdf)
+3. Question: When signing up for Databricks Community Edition, why is using an external email address recommended over a student account? Answer: There is an issue at the moment in being able to sign up using a student account. (Source: BUS5001-Workshop-Databricks-Signup-4.pdf)
+4. Question: What is the specific DBFS directory path shown in the workshop for enumerating Databricks’ built-in sample databases? Answer: /databricks-datasets/. (Source: BUS5001-Workshop-Databricks-Signup-4.pdf)
+5. Question: What is the term for the environment where a user provides the code to execute an analytics workload? Answer: A notebook. (Source: BUS5001-Workshop-Databricks-Signup-4.pdf)
